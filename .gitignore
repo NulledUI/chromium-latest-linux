@@ -1,2 +1,4 @@
 latest
 user-data-dir
+# Ignore downloaded revisions
+[0-9]*
