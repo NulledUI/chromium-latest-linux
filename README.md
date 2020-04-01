@@ -2,6 +2,7 @@
 Scripts to download and run the latest Linux build of Chromium.
 Note that it is the latest development version, not the last stable one.
 This build is recommended for testing only.
+If you want to use the stable version, look if your Linux distribution provides it.
 
 ## Usage
 
