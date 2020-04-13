@@ -30,6 +30,6 @@ curl -# $ZIP_URL > $ZIP_FILE
 echo "unzipping.."
 unzip $ZIP_FILE
 popd
-ln -fs $REVISION/chrome-linux/ ./latest
+ln -fsT $REVISION/chrome-linux/ ./latest
 sudo chown root:root ./latest/chrome_sandbox
 sudo chmod 4755 ./latest/chrome_sandbox
