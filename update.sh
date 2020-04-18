@@ -48,6 +48,7 @@ cd $REVISION
 curl -# $ZIP_URL > $ZIP_FILE
 printf "Unzipping...\n"
 unzip -q $ZIP_FILE
+[ $? -ne 0 ] && { printf "Error: not a valid zip file\n" ; exit 1; }
 cd ..
 ln -fsT $REVISION/chrome-linux/ ./latest
 printf "Changing owner and permissions for chrome_sandbox (requires privileges):\n"
