@@ -12,7 +12,6 @@ Download and runs the latest build of Chromium
 
 Download a specific revision
 
-    $ export REVISION=492595
-    $ ./update-and-run.sh
+    $ ./update-and-run.sh 492595
 
 The same use is possible with ./update.sh
