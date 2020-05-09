@@ -36,6 +36,11 @@ if [ -d $REVISION ] ; then
   exit 0
 fi
 
+CHROME_DIR=$(dirname $0)
+prune() {
+    /usr/bin/find "$CHROME_DIR" -maxdepth 1 -type d -cmin +60 -exec rm -Rf {} \;
+}
+
 ZIP_URL="$BASE_URL%2F$REVISION%2Fchrome-linux.zip?alt=media"
 
 ZIP_FILE="${REVISION}-chrome-linux.zip"
@@ -50,7 +55,9 @@ printf "Unzipping...\n"
 unzip -q $ZIP_FILE
 [ $? -ne 0 ] && { printf "Error: not a valid zip file\n" ; exit 1; }
 cd ..
+unlink ./latest
 ln -fsT $REVISION/chrome-linux/ ./latest
+prune
 printf "Changing owner and permissions for chrome_sandbox (requires privileges):\n"
 sudo chown root:root ./latest/chrome_sandbox
 sudo chmod 4755 ./latest/chrome_sandbox
